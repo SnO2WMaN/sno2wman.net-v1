@@ -1,0 +1,8 @@
+pre-commit:
+  parallel: true
+  commands:
+    prettier:
+      tags: frontend lint
+      files: git diff --name-only --staged
+      glob: '*.{css,scss,json,yml,yaml,md}'
+      run: prettier --check {staged_files}

@@ -1,0 +1,16 @@
+# Dependencies
+node_modules
+
+# Cache
+.cache
+
+# Logfiles
+*.log
+
+# Parcel
+.parcel-cache
+dist/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json

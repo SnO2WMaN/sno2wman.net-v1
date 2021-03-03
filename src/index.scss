@@ -1,0 +1,112 @@
+@import 'ress/ress.css';
+@import 'node_modules/mathsass/dist/math';
+
+$brandcolors: (
+  'twitter': #1da1f2,
+  'scrapbox': #00b52e,
+  'spotify': #1db954,
+  'pixiv': #009cff,
+  'npm': #cb3837,
+  'codepen': #131417,
+  'lastfm': #d51007,
+  'steam': #377096,
+  'github': #24292e,
+  'discord': #7289da,
+  'annict': #f85b73,
+  'speaker-deck': #009287,
+  'zenn': #ebf5ff,
+  'bookmeter': #64bc4b,
+  'soundcloud': #ff8800,
+  'ko-fi': #29abe0,
+  'buymeacoffee': #fcdd05,
+  'mixcloud': #5000ff,
+);
+
+$accent: hsl(221, 96%, 71%);
+$bg: hsl(225, 53%, 94%);
+$text: hsl(hue($bg), 13%, 15%);
+
+$phi: (1 + sqrt(5)) / 2;
+
+@mixin inset-0 {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+:root {
+  overflow: hidden;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: $bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#icon {
+  size: 5rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+#username {
+  font-size: 1.25rem;
+  font-family: 'Press Start 2P';
+  line-height: 1em;
+  color: $text;
+  margin-bottom: 1rem;
+  letter-spacing: 0.25em;
+  user-select: all;
+  sub {
+    color: $accent;
+  }
+}
+
+#domain {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: -12px;
+  li {
+    margin-top: 12px;
+    padding-right: 16px;
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      font-size: 0.5rem;
+      font-family: 'Press Start 2P';
+      line-height: 1em;
+      color: $text;
+      user-select: none;
+      & > img {
+        margin-right: 16px;
+        size: 32px;
+        padding: 6px;
+      }
+      .sub {
+        flex-grow: 1;
+        text-align: end;
+      }
+    }
+    @each $brand, $brandcolor in $brandcolors {
+      &.#{$brand} {
+        order: (floor(hue($brandcolor)) / 1deg + 30) % 360;
+        &:hover {
+          background: rgba($brandcolor, 0.125);
+        }
+        & > a > img {
+          background: $brandcolor;
+        }
+      }
+    }
+  }
+}

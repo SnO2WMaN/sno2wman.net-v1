@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "extends": ["plugin:@shopify/esnext", "plugin:@shopify/prettier"],
+  "rules": {
+    "no-nested-ternary": [0],
+    "import/order": [0]
+  },
+  "overrides": [
+    {
+      "files": ["*.config.js"],
+      "extends": ["plugin:@shopify/node"]
+    }
+  ]
+}

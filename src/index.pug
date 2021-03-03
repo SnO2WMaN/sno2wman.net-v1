@@ -1,0 +1,38 @@
+doctype html
+
+html
+  head
+    meta(charset="utf-8")
+    meta(name="description" content="SnO2WMaN's Website")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="og:type" content="website")
+    meta(name="og:title" content="sno2wman.net")
+    meta(name="og:site_name" content="sno2wman.net")
+    meta(name="og:url" content="https://sno2wman.net/")
+    meta(name="twitter:title" content="sno2wman.net")
+    meta(name="twitter:url" content="https://sno2wman.net/")
+    meta(name="twitter:site" content="@SnO2WMaN")
+    link(rel="shortcut icon" href="http://icon.sno2wman.net" )
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap")
+    link(rel="stylesheet" href="./index.scss" )
+    title sno2wman.net
+  body
+    #container
+      img#icon(src="http://icon.sno2wman.net")
+
+    p#username
+      span SnO
+      sub 2
+      span WMaN
+
+    ul#domain
+      -
+        const targets = ["twitter", "scrapbox", "github", "steam", "annict", "soundcloud", "spotify", "pixiv"]
+      each sub in targets
+        li(class=sub)
+          a(href=`https://${sub}.sno2wman.net`)
+            img(src=`./assets/brands/${sub}.svg`, alt=sub)
+            span.sub #{sub}
+            span.base .sno2wman.net
+
+    script(src="./index.js")
